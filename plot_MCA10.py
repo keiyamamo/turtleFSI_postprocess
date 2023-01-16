@@ -12,9 +12,6 @@ def main():
 
 
     plt.plot(t_values, Q_, color="black", linewidth=1.5, alpha=1)
-    # probe_point = [100, 140, 200, 300, 420, 600]
-    # for i in probe_point:
-    #     plt.scatter(t_values[i],Q_[i], color="blue", s=40)
     plt.xlabel("Time [s]", fontsize=22)
     plt.ylabel("Normalized velocity [-]", fontsize=22)
     plt.xlim(0, 0.951)
