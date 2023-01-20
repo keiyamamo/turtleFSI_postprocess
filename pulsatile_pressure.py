@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 data = np.loadtxt("p_t.csv", delimiter=",")
 time = data[:,0]
 pressure = data[:,1]
-pressure_new = data[:,1] - 1333.22
 
 one_cardiac_cycle = 0.951   # in seconds
 dt = time[1] - time[0]
@@ -34,5 +33,4 @@ for i in range(n_cycles):
 
 
 plt.plot(time, pressure)
-plt.plot(time, pressure_new)
 plt.show()
