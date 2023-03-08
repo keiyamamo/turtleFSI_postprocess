@@ -5,8 +5,9 @@ This script is ussed to analyze the pulsatile pressure data used for aneurysm ca
 import numpy as np
 import matplotlib.pyplot as plt
 
+fig, ax = plt.subplots()
 # Read the data
-data = np.loadtxt("p_t.csv", delimiter=",")
+data = np.loadtxt("FC_pressure_flow/p_t.csv", delimiter=",")
 time = data[:,0]
 pressure = data[:,1]
 
@@ -21,16 +22,13 @@ max_pressure = np.zeros(n_cycles)
 min_pressure = np.zeros(n_cycles)
 
 mmHG_to_Pa = 133.322
+ax.set_xlabel("Time [s]", fontsize=18)
+ax.set_ylabel("Pressure [mmHg]", fontsize=18)
+ax.plot(time, pressure/mmHG_to_Pa, color="black", linewidth=2, alpha=1, label = 'Normal')
 
-for i in range(n_cycles):
-    mean_pressure[i] = np.mean(pressure[i*n:(i+1)*n])
-    print("Mean pressure in cycle %d is %f" % (i+1, mean_pressure[i]/mmHG_to_Pa))
-    max_pressure[i] = np.max(pressure[i*n:(i+1)*n])
-    print("Max pressure in cycle %d is %f" % (i+1, max_pressure[i]/mmHG_to_Pa))
-    min_pressure[i] = np.min(pressure[i*n:(i+1)*n])
-    print("Min pressure in cycle %d is %f" % (i+1, min_pressure[i]/mmHG_to_Pa))
-    print("====================================")
-
-
-plt.plot(time, pressure)
+data = np.loadtxt("FC_pressure_flow/p_t_min100_max170mmHg.csv", delimiter=",")
+time = data[:,0]
+pressure = data[:,1]
+ax.plot(time, pressure/mmHG_to_Pa, color="red", linewidth=2, alpha=1, label = 'High')
+# ax.legend(loc='upper right', fontsize=14)
 plt.show()

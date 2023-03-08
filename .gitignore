@@ -1,4 +1,10 @@
+
 *.csv
 .DS_Store
 FC_pressure_flow/data
 *.png
+*.avi
+*.mp4
+*.xdmf
+*.h5
+*.pvsm

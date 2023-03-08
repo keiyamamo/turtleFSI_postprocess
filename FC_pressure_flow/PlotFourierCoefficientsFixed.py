@@ -68,7 +68,9 @@ p_t_30 = (Q_values - Qmin)*(pmax-pmin)/(Qmax-Qmin)   + pmin
 #print(t_values_10[:-1])
 #
 #print(np.append(t_values_10[:-1],t_values_10+period))
+# np.savetxt("p_t.csv",np.transpose([t_values_10[:-1],p_t_10[:-1]]),delimiter=',',header='T (s),P (Pa)')
 np.savetxt("p_t_min100_max170mmHg.csv",np.transpose([t_values_10[:-1],p_t_10[:-1]]),delimiter=',',header='T (s),P (Pa)')
+assert False
 # np.savetxt("Q_MCA_10",np.transpose([t_values_10[:-1],Q_values_10[:-1]]))
 # np.savetxt("Q_ICA",np.transpose([t_values_ICA[:-1],Q_values_ICA[:-1]]))
 
