@@ -8,3 +8,5 @@ FC_pressure_flow/data
 *.xdmf
 *.h5
 *.pvsm
+*.txt
+*.pickle
